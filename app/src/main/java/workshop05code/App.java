@@ -5,13 +5,31 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+//Included for the logging exercise
+import java.io.FileInputStream;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  *
  * @author sqlitetutorial.net
  */
 public class App {
+    // Start code for logging exercise
+    static {
+        // must set before the Logger
+        // loads logging.properties from the classpath
+        try {// resources\logging.properties
+            LogManager.getLogManager().readConfiguration(new FileInputStream("resources/logging.properties"));
+        } catch (SecurityException | IOException e1) {
+            e1.printStackTrace();
+        }
+    }
 
+    private static final Logger logger = Logger.getLogger(App.class.getName());
+    // End code for logging exercise
+    
     /**
      * @param args the command line arguments
      */
